@@ -12,7 +12,7 @@ gem 'rails', '~> 5.1.6'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
-
+gem 'rack-cors'
 gem 'devise'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
