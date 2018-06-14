@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
   use_doorkeeper do
-    skip_controllers :applications 
+    skip_controllers :applications
   end
 
   namespace :api do
     namespace :v1 do
       get 'users/index'
 
-      resources :chats, only: [:create]
+      resources :chats, only: [:create] do
+        resources :messages, only: [:create]
+      end
 
       devise_for :users, controllers: {
         registrations: 'api/v1/users/registrations',

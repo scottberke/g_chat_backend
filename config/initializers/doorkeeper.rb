@@ -13,7 +13,7 @@ Doorkeeper.configure do
 
   # In this flow, a token is requested in exchange for the resource owner credentials (username and password)
  resource_owner_from_credentials do |routes|
-   user = User.find_for_database_authentication(:email => params[:email])
+   user = User.find_for_database_authentication(:username => params[:username])
    if user && user.valid_for_authentication? { user.valid_password?(params[:password]) }
      user
    end
@@ -145,3 +145,5 @@ Doorkeeper.configure do
   # WWW-Authenticate Realm (default "Doorkeeper").
   # realm "Doorkeeper"
 end
+
+Doorkeeper::OAuth::TokenResponse.send :prepend, CustomTokenResponse

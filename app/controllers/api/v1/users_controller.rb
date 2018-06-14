@@ -1,8 +1,7 @@
 class Api::V1::UsersController < ApplicationController
 
   def index
-    current_user = User.find(1)
-    other_users = User.everyone_else(current_user)
+    other_users = User.everyone_else(current_resource_owner)
 
     render json: other_users
   end
