@@ -3,7 +3,7 @@ Rails.application.configure do
 
 
   config.web_socket_server_url = "ws://shrouded-wave-69866.herokuapp.com/cable"
-  config.action_cable.allowed_request_origins = ["http://localhost:3000", "*", "https://nameless-castle-26743.herokuapp.com", "http://nameless-castle-26743.herokuapp.com/"]
+  config.action_cable.allowed_request_origins = ["http://localhost:3000", "https://localhost:3000"]
   # Code is not reloaded between requests.
   config.cache_classes = true
 
