@@ -22,9 +22,10 @@ RSpec.describe Chat, type: :model do
     end
 
     it 'has a unique sender and recipient' do
-      expect(chat).to validate_uniqueness_of(:sender_id).
+      user = FactoryBot.create(:user)
+      expect(Chat.new(sender_id: user.id, recipient_id: user.id)).to validate_uniqueness_of(:sender_id).
         scoped_to(:recipient_id).
-        with_message("Can't send yourself a message!")
+        with_message("Can't send yo self a message foo!")
     end
   end
 
