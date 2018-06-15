@@ -1,5 +1,5 @@
 {
-  "name": "g_chat_frontend",
+  "name": "g_chat_front_end",
   "engines": {
     "node": "6.3.1"
   },
