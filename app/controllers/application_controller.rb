@@ -3,8 +3,6 @@ class ApplicationController < ActionController::API
   before_action :doorkeeper_authorize!
   respond_to :json
 
-
-
   protected
 
   def configure_permitted_parameters

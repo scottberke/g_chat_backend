@@ -1,5 +1,4 @@
 class Api::V1::UsersController < ApplicationController
-
   def index
     other_users = User.everyone_else(current_resource_owner)
 

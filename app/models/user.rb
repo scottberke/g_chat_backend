@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   scope :everyone_else, ->(user) { all.where.not(id: user.id) }
 
-  # Silly me for using 'username' instead of 'email', thus requiring these two:
+  # Silly me for using 'username' instead of 'email', thus requiring these two for Devise:
   def email_required?
     false
   end
