@@ -12,7 +12,7 @@ Devise with Doorkeeper are used to provide signup and Oauth Token access.
 ## Notes
 * Backend tests cover the main controllers as well as the models. If I was going to spend more time on this, I would certainly test all of the ActionCable interactions as well as the ActiveJob thats created. The ActiveJob is only tested via the after commit test in the message model spec.
 
-The frontend does not include any tests at this time. Again, if more time was allowed I would write a bunch of feature tests.
+* The frontend does not include any tests at this time. Again, if more time was allowed I would write a bunch of feature tests.
 
 * I don't consider myself much of a frontend engineer. With that in mind, I initially tried keeping both the backend and the frontend in two distinct repos. I was have a lot of difficulty deploying the frontend so that it would communicate with the backend via a websocket. Lots of CORS issues. So, I wound up stumbling on a solution that pulled the frontend into a g_chat_frontend directory within the API root and creating a deploy script that enabled Heroku to build the front and the back on one dyno. I'm sure my React isn't idiomatic but I'm working toward that.
 
