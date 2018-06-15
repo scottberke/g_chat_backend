@@ -14,3 +14,25 @@
 !/tmp/.keep
 
 .byebug_history
+
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+/g_chat_frontend/node_modules
+
+# testing
+/g_chat_frontend/coverage
+
+# production
+/g_chat_frontend/build
+
+# misc
+/g_chat_frontend/.DS_Store
+/g_chat_frontend/.env.local
+/g_chat_frontend/.env.development.local
+/g_chat_frontend/.env.test.local
+/g_chat_frontend/.env.production.local
+
+/g_chat_frontend/npm-debug.log*
+/g_chat_frontend/yarn-debug.log*
+/g_chat_frontend/yarn-error.log*
