@@ -54,6 +54,19 @@ $ curl -X POST \
   -F password=PASSWORD \
   -F grant_type=password
 ```
+
+Response 202 (application/json)
+```json
+{
+    "access_token": "ACCESS_TOKEN",
+    "token_type": "bearer",
+    "expires_in": 7200,
+    "created_at": 1529095325,
+    "username": "USERNAME",
+    "userid": 1
+}
+```
+
 ## Users
 #### POST /api/v1/users
 Use to create a new user
