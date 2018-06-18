@@ -68,6 +68,26 @@ export class Window extends Component {
     .catch( error => this.handleError(error))
   }
 
+  newChatReceivedHandler(message) {
+    var header = new Headers({
+      'Authorization': 'Bearer ' + this.props.accessToken,
+      'access_token': this.props.accessToken
+    });
+
+    var newUserId = message.from_user_id
+    var formData = new FormData();
+    formData.append('user_id', newUserId)
+
+    fetch('/api/v1/chats', {
+      method: 'POST',
+      headers: header,
+      body: formData
+      })
+    .then((response) => response.json())
+    .then((response) => this.addNewChatToOpenChats(response, message.from_username))
+    .catch( error => this.handleError(error))
+  }
+
   handleClose(event) {
     event.preventDefault();
     var chatIdToClose = Number(event.target.dataset.chatid)
@@ -97,6 +117,7 @@ export class Window extends Component {
   }
 
   createSocket() {
+    // 'wss://protected-wildwood-40844.herokuapp.com'
     var socketUrl = 'wss://protected-wildwood-40844.herokuapp.com/cable?access_token=' + this.props.accessToken
     let cable = Cable.createConsumer(socketUrl)
     this.chats = cable.subscriptions.create({
@@ -120,14 +141,14 @@ export class Window extends Component {
     this.createSocket();
     this.handleComponentsLoaded();
   }
-
-  handleSendEvent(event) {
-    event.preventDefault();
-    this.chats.create(this.state.currentChatMessage);
-    this.setState({
-      currentChatMessage: ''
-    });
-  }
+  //
+  // handleSendEvent(event) {
+  //   event.preventDefault();
+  //   this.chats.create(this.state.currentChatMessage);
+  //   this.setState({
+  //     currentChatMessage: ''
+  //   });
+  // }
 
   handleSendMessage(message, chatId) {
     this.chats.create(message, chatId);
@@ -142,8 +163,15 @@ export class Window extends Component {
       messagesReceived: messagesUnique
     })
 
+    if (!this.hasOpenChat(data)) {
+      this.newChatReceivedHandler(data)
+    }
+
   }
 
+  hasOpenChat(message) {
+    return (this.state.openChats.filter((chat) => chat.chatId == message.chat_id).length > 0)
+  }
 
   fetchUsersFromApi() {
     this.setState({ currentUserList: [] })

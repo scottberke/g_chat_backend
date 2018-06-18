@@ -8,7 +8,6 @@ class ChatChannel < ApplicationCable::Channel
   end
 
   def create(options)
-    # binding.pry
     chat = Chat.includes(:recipient).find(options.fetch('chat_id'))
 
     message = chat.messages.create(body: options.fetch('body'),

@@ -59,6 +59,5 @@ export class Chat extends Component {
     event.preventDefault();
 
     this.props.handleSendMessage(this.state.currentChatMessage, this.props.chat.chatId)
-
   }
 }
