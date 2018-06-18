@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/scottberke/g_chat_backend.svg?branch=master)](https://travis-ci.org/scottberke/g_chat_backend)
 Live App: https://protected-wildwood-40844.herokuapp.com/
-* To use live app open url in two tabs in a browser. Sign up/Sign in and click on another user to chat. One known issue is that sending a logged in user a message doesn't auto-open a chat window on the other users session. Other user must click your username to open the chat window to see chats. Will fix this soon.
+* To use live app open url in two tabs in a browser. Sign up/Sign in and click on another user to chat.
 
 # G(uild) Chat
 G Chat chat is a basic chat application that enables users to create an account, login and send messages to other users of the app. The application is built with Ruby on Rails as the backend API and React for the frontend.
